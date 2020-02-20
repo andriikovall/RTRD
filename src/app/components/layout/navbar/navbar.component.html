@@ -1,0 +1,114 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark  light-blue lighten-1 ie-nav fixed-top"
+  [containerInside]="false">
+  <mdb-navbar-brand>
+    <a class="logo navbar-brand" [routerLink]="['/']"><strong>Navbar</strong></a>
+  </mdb-navbar-brand>
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active waves-light" mdbWavesEffect>
+        <a class="nav-link" [routerLink]="['/main']">Main<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a class="nav-link">Features</a>
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a class="nav-link">Pricing</a>
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a class="nav-link">Opinions</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item waves-light"  (click)="onRegisterClicked()" mdbWavesEffect>
+        <a class="nav-link">Sign up</a>
+      </li>
+      <li class="nav-item waves-light" (click)="onLoginClicked()" mdbWavesEffect>
+        <a class="nav-link">Sign in</a>
+      </li>
+    </ul>
+  </links>
+</mdb-navbar>
+
+
+<div mdbModal #loginModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header"></div>
+      <div class="modal-body">
+        <form class="text-center" action="#!">
+
+          <p class="h4 mb-4">Sign in</p>
+          <input type="email"  class="form-control mb-4" placeholder="E-mail">
+
+          <input type="password"  class="form-control mb-4" placeholder="Password">
+
+          <div class="d-flex justify-content-around">
+              <div>
+                  <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input">
+                      <label class="custom-control-label" >Remember me</label>
+                  </div>
+              </div>
+              <div>
+                  <a href="">Forgot password?</a>
+              </div>
+          </div>
+
+          <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+
+          <p>Not a member?
+            <button mdbBtn type="button" color="info" outline="true" (click)="onRegisterClicked()" mdbWavesEffect>Register</button>
+          </p>
+
+          <p>or sign in with:</p>
+
+          <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+          <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+          <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+          <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+
+      </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div mdbModal #registerModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form class="text-center" action="#!">
+
+          <p class="h4 mb-4">Sign up</p>
+          <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+
+          <input type="password" class="form-control mb-4" placeholder="Password">
+          <input type="password" class="form-control mb-4" placeholder="Password2">
+
+          <div class="d-flex justify-content-around">
+              <div>
+                  <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                      <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+                  </div>
+              </div>
+          </div>
+
+          <button class="btn btn-info btn-block my-4" type="submit">Sign up</button>
+          <p>or sign in with:</p>
+
+          <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+          <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+          <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+          <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+
+      </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
