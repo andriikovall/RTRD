@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ShellComponent } from './components/layout/shell/shell.component';
 import { MainComponent } from './components/main/main.component';
+import { NavbarComponent } from 'angular-bootstrap-md';
+import { AppComponent } from './app.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 
 const routes: Routes = [
-  { path: '', component: ShellComponent, children: [
-    // { path: '', component: }
-    { path: '', component: MainComponent }
+  { path: '', children: [
+    { path: '', redirectTo: '/main', pathMatch: 'full' },
+    { path: 'main', component: MainComponent },
+    { path: 'gallery', component: GalleryComponent }
   ]},
 ];
 

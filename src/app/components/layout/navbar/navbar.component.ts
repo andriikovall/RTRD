@@ -1,22 +1,25 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-// import { MDBModalRef } from 'ng-uikit-pro-standard';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
   @ViewChild('loginModal', { static: true }) public loginModal;
   @ViewChild('registerModal', { static: true }) public registerModal;
 
-  constructor() { }
+  links = [
+    { label: 'Main', path: '/main', active: false },
+    { label: 'Gallery', path: '/gallery', active: false }
+  ]
 
-  ngOnInit() {
-    console.log(this.loginModal);
-    console.log(this.registerModal);
+  onLinkClicked(link) {
+    this.links.forEach(l => l.active = false);
+    link.active = true;
   }
+
 
   onRegisterClicked() {
     this.loginModal.hide();

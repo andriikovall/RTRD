@@ -6,15 +6,15 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/layout/navbar/navbar.component';
-import { ShellComponent } from './components/layout/shell/shell.component';
 import { MainComponent } from './components/main/main.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ShellComponent,
-    MainComponent
+    MainComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
