@@ -1,24 +1,28 @@
-const port = process.env.PORT || 5000;
 
+const mongoose = require('mongoose');
 const express = require('express');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const morgan = require('morgan')('dev');
+const config = require('./config');
+
+const port = process.env.PORT || 5000;
 
 const app = express();
 
-require('passport')(passport);
+require('./passport')(passport);
+
 mongoose.connect(config.mongoURI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true,
-        useFindAndModify: false,
-    })
-    .then(() => console.log('Mongo connected.'))
-    .catch(error => console.log(error));
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+})
+  .then(() => console.log('Mongo connected.'))
+  .catch(error => console.log(error));
 
 app.use(bodyParser.urlencoded({
-    extended: true
+  extended: true,
 }));
 app.use(bodyParser.json());
 app.use(morgan);
