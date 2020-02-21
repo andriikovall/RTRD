@@ -11,7 +11,7 @@ export class NavbarComponent {
   @ViewChild('registerModal', { static: true }) public registerModal;
 
   links = [
-    { label: 'Main', path: '/main', active: false },
+    { label: 'Main', path: '/main', active: true },
     { label: 'Gallery', path: '/gallery', active: false }
   ]
 
