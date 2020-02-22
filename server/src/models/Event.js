@@ -1,15 +1,24 @@
 const mongoose = require('mongoose');
 
-const { Schema } = mongoose;
+const {
+    Schema
+} = mongoose;
 
 const eventSchema = new Schema({
-    title: String,
+    name: String,
+    bio: String,
     author: {
         ref: 'users',
         type: Schema.Types.ObjectId,
     },
-    vote: Number,
-    isActive: Boolean,
+    vote: {
+        type: Number,
+        default: 0,
+    },
+    isActive: {
+        type: Boolean,
+        default: true,
+    },
     sponsors: [{
         user: {
             ref: 'users',
@@ -17,6 +26,7 @@ const eventSchema = new Schema({
         },
         cost: {
             type: Number,
+            default: 0,
         },
     }],
     region: String,

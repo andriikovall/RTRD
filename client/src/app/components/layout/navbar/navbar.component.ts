@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { User } from '../../../interfaces';
 import { AuthService } from 'src/app/services/auth.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +13,9 @@ export class NavbarComponent {
 
   @ViewChild('loginModal', { static: true }) public loginModal;
   @ViewChild('registerModal', { static: true }) public registerModal;
+  @ViewChild('event', { static: true }) public eventModal;
+
+  form: FormGroup;
 
   login: string = '';
   password: string = '';
@@ -20,7 +24,12 @@ export class NavbarComponent {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-
+    this.form = new FormGroup({
+      name: new FormControl(null),
+      bio: new FormControl(null),
+      date: new FormControl(null),
+      region: new FormControl(null),
+    })
   }
 
   links = [
@@ -33,15 +42,26 @@ export class NavbarComponent {
     link.active = true;
   }
 
+  onEventCreatingClicked() {
+    this.eventModal.show();
+    this.loginModal.hide();
+    this.registerModal.hide();
+  }
+
+  onEventSubmit() {
+
+  }
 
   onRegisterClicked() {
-    this.loginModal.hide();
     this.registerModal.show();
+    this.loginModal.hide();
+    this.eventModal.hide();
   }
 
   onLoginClicked() {
     this.loginModal.show();
     this.registerModal.hide();
+    this.eventModal.hide();
   }
 
   onRegisterConfirm() {

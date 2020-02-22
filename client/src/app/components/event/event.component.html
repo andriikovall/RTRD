@@ -1,49 +1,101 @@
 <div class="container">
-  <section>
-    <div class="row">
-      <div class="jumbotron">
+    <section>
         <div class="row">
+            <div class="jumbotron">
+                <div class="row">
 
-          <div class="col-lg-8">
-            <h2 class="display-4">Event title</h2>
-            <p class="lead">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.
-            </p>
-          </div>
-          <div class="col-lg-4">
-            <div class="row">
-              <div class="col-lg-1 col-md-1 col-sm-1 col-1 counter">
-                <div class="row">
-                  <mdb-icon fas icon="caret-up" size="3x" class="green-text"></mdb-icon>
+                    <div class="col-lg-8">
+                        <h2 class="display-4">Event title</h2>
+                        <p class="lead">Some quick example text to build on the card title and make up the bulk of the card's content.
+                        </p>
+                        <hr class="my-4">
+                        <p>It uses utility classes for typography and spacing to space content out within the larger container.
+                        </p>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-1 counter">
+                                <div class="row">
+                                    <mdb-icon fas icon="caret-up" size="3x" class="green-text"></mdb-icon>
+                                </div>
+                                <div class="row" style="padding-left: 50%; font-size: 1.4em;">
+                                    5
+                                </div>
+                                <div class="row">
+                                    <mdb-icon fas icon="caret-down" size="3x" class="red-text"></mdb-icon>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <p>Топ спонсори</p>
+                                <ul class="list-group">
+                                    <li class="list-group-item list-group-item-action waves-light">Cras justo odio</li>
+                                    <li class="list-group-item list-group-item-action waves-light">Dapibus ac facilisis in</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-around">
+                            <button type="button" mdbBtn color="success" class="mt-5" mdbWavesEffect>Пілписатися</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="row" style="padding-left: 50%; font-size: 1.4em;">
-                  5
+                <div class="author">
+                    <p>Автор:
+                        <a href="#">
+                            <p>Вася пупкин</p>
+                        </a>
+                    </p>
                 </div>
-                <div class="row">
-                  <mdb-icon fas icon="caret-down" size="3x" class="red-text"></mdb-icon>
-                </div>
-              </div>
-              <div class="col">
-                <p>Топ спонсори</p>
-                <ul class="list-group">
-                  <li class="list-group-item list-group-item-action waves-light">Cras justo odio</li>
-                  <li class="list-group-item list-group-item-action waves-light">Dapibus ac facilisis in</li>
-                </ul>
-              </div>
             </div>
-            <div class="row d-flex justify-content-around">
-              <button type="button" mdbBtn color="success" class="mt-5" mdbWavesEffect>Пілписатися</button>
-            </div>
-          </div>
         </div>
-        <div class="author">
-          <p>Автор:<a href="#">
-              <p>Вася пупкин</p>
-            </a></p>
+    </section>
+    <section>
+        <caption>Коментарі</caption>
+        <ul class="list-group" id="comments">
+            <li class="list-group-item list-group-item-action">
+
+
+                <div class="comment row">
+                    <div class="comment-image col-lg-1 col-md-2 col-sm-2 col-4">
+                        <img style="border-radius: 50%;" src="https://lh3.googleusercontent.com/proxy/xoC1nZgejmyWHLjMDK5jQtrlZQbOmG0roqow5av8XqvMGEeNqN3rDlO54s5tMjkV_6aEBfCdy0qoE2lmYFDrlicO6-5MQJWq5HqGEYF6-2r_OCvrSxaoqJOmbP5GYjV5ZM5O-w" alt="user avatar">
+                    </div>
+                    <div class="comment-body col-lg-11 col-md-10 col-sm-8 col-8">
+                        <div class="col">
+                            <div class="row">
+                                <caption>Имя фамілія</caption>
+                            </div>
+                            <div class="row">
+                                <p>lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem
+                                    ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item list-group-item-action">
+                <div class="comment row">
+                    <div class="comment-image col-lg-1 col-md-2 col-sm-2 col-4">
+                        <img style="border-radius: 50%;" src="https://lh3.googleusercontent.com/proxy/xoC1nZgejmyWHLjMDK5jQtrlZQbOmG0roqow5av8XqvMGEeNqN3rDlO54s5tMjkV_6aEBfCdy0qoE2lmYFDrlicO6-5MQJWq5HqGEYF6-2r_OCvrSxaoqJOmbP5GYjV5ZM5O-w" alt="user avatar">
+                    </div>
+                    <div class="comment-body col-lg-11 col-md-10 col-sm-8 col-8">
+                        <div class="col">
+                            <div class="row">
+                                <caption>Имя фамілія</caption>
+                            </div>
+                            <div class="row">
+                                <p>lorem ipsum</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+        <div class="md-form">
+            <textarea type="text" id="comment-form" class="md-textarea md-textarea-auto form-control" rows="2" mdbInput></textarea>
+            <label for="form7">Додати коментар</label>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="text-right">
+            <button class="ml-auto" mdbBtn type="button" color="default" mdbWavesEffect>Додати коментар</button>
+        </div>
+    </section>
 </div>

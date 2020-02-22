@@ -7,6 +7,7 @@ export interface User {
     lastName?: string
     telegram?: string
     role?: string
+    visitedEvents?: string[]
 }
 
 export interface Message {
@@ -19,7 +20,8 @@ export interface Token {
 
 export interface Event {
     _id?: string
-    title?: string
+    name?: string
+    bio?: string
     author?: string
     vote?: number
     isActive?: boolean

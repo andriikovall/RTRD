@@ -12,9 +12,10 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    visited: [{
+    visitedEvents: [{
         ref: 'events',
         type: Schema.Types.ObjectId,
+        default: [],
     }],
     email: String,
     firstName: String,
