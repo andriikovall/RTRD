@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 const express = require('express');
 const passport = require('passport');
@@ -30,6 +29,7 @@ app.use(passport.initialize());
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/user', require('./routes/user'));
+app.use('/api/event', require('./routes/event'));
 
 app.listen(port, () => console.log(`Server has been started on ${port}`));
 

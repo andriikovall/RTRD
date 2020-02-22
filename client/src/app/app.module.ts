@@ -12,13 +12,15 @@ import { MainComponent } from './components/main/main.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './token.interseptor';
+import { EventComponent } from './components/event/event.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     MainComponent,
-    GalleryComponent
+    GalleryComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,

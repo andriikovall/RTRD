@@ -24,8 +24,8 @@ export class NavbarComponent {
   }
 
   links = [
-    { label: 'Main', path: '/main', active: true },
-    { label: 'Gallery', path: '/gallery', active: false }
+    { label: 'Головна', path: '/main', active: true },
+    { label: 'Хардкод ивент', path: '/event', active: false }
   ]
 
   onLinkClicked(link) {
