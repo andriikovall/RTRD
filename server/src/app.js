@@ -21,10 +21,10 @@ mongoose.connect(config.mongoURI, {
   .then(() => console.log('Mongo connected.'))
   .catch(error => console.log(error));
 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true,
 }));
-app.use(bodyParser.json());
 app.use(morgan);
 app.use(passport.initialize());
 
