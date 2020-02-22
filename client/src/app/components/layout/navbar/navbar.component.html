@@ -46,12 +46,12 @@
 
           <button class="btn btn-info btn-block my-4" type="submit" (click)="onLoginConfirm()">Увійти</button>
 
-          <p>Not a member?
-            <button mdbBtn type="button" color="info" outline="true" (click)="onRegisterClicked()"
-              mdbWavesEffect>Register</button>
-          </p>
-
-          <p>or sign in with:</p>
+          <div class="d-flex justify-content-around">
+            <p>Не маєте аккаунту?
+              <button mdbBtn type="button" color="info" outline="true" (click)="onRegisterClicked()"
+                mdbWavesEffect>Зареєструватися</button>
+            </p>
+          </div>
 
           <!-- <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
           <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
@@ -75,22 +75,23 @@
         <!-- <form class="text-center" action="#!"> -->
 
           <p class="h4 mb-4">Реєстрація</p>
-          <input type="login" [(ngModel)]="login" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Логін">
+          <!-- <div class="md-form"> -->
+            <input type="login" [(ngModel)]="login" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Логін">
+            <input type="password"  [(ngModel)]="password" class="form-control mb-4" placeholder="Пароль">
+            <input type="password"  [(ngModel)]="passwordRepeat" class="form-control mb-4" id="passwordRepeat" placeholder="Повторіть пароль">
+            <small *ngIf="passwordRepeat !== password">Паролі відрізняються</small>
+          <!-- </div> -->
 
-          <input type="password"  [(ngModel)]="password" class="form-control mb-4" placeholder="Пароль">
-          <input type="password"  [(ngModel)]="passwordRepeat" class="form-control mb-4" placeholder="Повторіть пароль">
-
-          <div class="d-flex justify-content-around">
+          <!-- <div class="d-flex justify-content-around">
             <div>
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
                 <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <button class="btn btn-info btn-block my-4" (click)="onRegisterConfirm()" type="submit">Зареєструватися</button>
-          <p>or sign in with:</p>
+          <button class="btn btn-info btn-block my-4" (click)="onRegisterConfirm()" type="submit" [disabled]="passwordRepeat !== password">Зареєструватися</button>
 
           <!-- <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
           <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>

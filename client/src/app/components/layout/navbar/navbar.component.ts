@@ -47,6 +47,7 @@ export class NavbarComponent {
   onRegisterConfirm() {
     if (this.password !== this.passwordRepeat) {
       alert('passwords dot match');
+      return;
     }
     this.authService.register(this.login, this.password).subscribe(user => {
       console.log(user);
