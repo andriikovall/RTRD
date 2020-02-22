@@ -17,6 +17,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.eventService.getAll().subscribe(e => {
       this.events = e;
+      console.log('here');
       console.log(this.events);
     });
   }
