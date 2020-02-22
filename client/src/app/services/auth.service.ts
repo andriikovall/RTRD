@@ -27,7 +27,7 @@ export class AuthService {
       )
   }
 
-  getById(id: String): Observable<User> {
+  getById(id: string): Observable<User> {
     return this.http.get<User>(`api/user/${id}`)
   }
 

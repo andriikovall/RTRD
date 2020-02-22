@@ -1,6 +1,5 @@
 const User = require('../models/User');
 const handler = require('../errorHandler');
-const config = require('../config');
 
 module.exports.getAll = async function(req, res) {
     try {

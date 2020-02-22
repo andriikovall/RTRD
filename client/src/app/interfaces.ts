@@ -16,3 +16,19 @@ export interface Message {
 export interface Token {
     token: string
 }
+
+export interface Event {
+    _id?: string
+    title?: string
+    author?: string
+    vote?: number
+    isActive?: boolean
+    sponsors?: Sponsor[]
+    region?: string
+    date?: string
+}
+
+export interface Sponsor {
+    user: string
+    cost: number
+}
