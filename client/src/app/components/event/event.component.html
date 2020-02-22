@@ -1,15 +1,49 @@
 <div class="container">
-  <mdb-card>
-    <mdb-card-body>
-      <mdb-card-title>
-        <h4>Event title</h4>
-      </mdb-card-title>
-      <mdb-card-text>Some quick example text to build on the card title and make up the bulk of the card's
-        content.</mdb-card-text>
-      <div class="flex-row">
-        <a class="card-link">Card link</a>
-        <a class="card-link">Another link</a>
+  <section>
+    <div class="row">
+      <div class="jumbotron">
+        <div class="row">
+
+          <div class="col-lg-8">
+            <h2 class="display-4">Event title</h2>
+            <p class="lead">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <div class="row">
+              <div class="col-lg-1 col-md-1 col-sm-1 col-1 counter">
+                <div class="row">
+                  <mdb-icon fas icon="caret-up" size="3x" class="green-text"></mdb-icon>
+                </div>
+                <div class="row" style="padding-left: 50%; font-size: 1.4em;">
+                  5
+                </div>
+                <div class="row">
+                  <mdb-icon fas icon="caret-down" size="3x" class="red-text"></mdb-icon>
+                </div>
+              </div>
+              <div class="col">
+                <p>Топ спонсори</p>
+                <ul class="list-group">
+                  <li class="list-group-item list-group-item-action waves-light">Cras justo odio</li>
+                  <li class="list-group-item list-group-item-action waves-light">Dapibus ac facilisis in</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row d-flex justify-content-around">
+              <button type="button" mdbBtn color="success" class="mt-5" mdbWavesEffect>Пілписатися</button>
+            </div>
+          </div>
+        </div>
+        <div class="author">
+          <p>Автор:<a href="#">
+              <p>Вася пупкин</p>
+            </a></p>
+        </div>
       </div>
-    </mdb-card-body>
-  </mdb-card>
+    </div>
+  </section>
 </div>
