@@ -11,15 +11,18 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  register(user: User): Observable<User> {
-    return this.http.post<User>('/api/auth/register', user)
+  register(login: string, password: string): Observable<User> {
+    return this.http.post<User>('/api/auth/register', { login, password });
   }
 
-  login(user: User): Observable<Token> {
-    return this.http.post<Token>('/api/auth/login', user)
+  login(user: User) {
+    return this.http.post<any>('/api/auth/login', user)
       .pipe(
         tap(
-          ({token}) => localStorage.setItem('token', token)
+          ({ token, role }) => {
+            localStorage.setItem('token', token);
+            localStorage.setItem('role', role);
+          }
         )
       )
   }
@@ -28,7 +31,7 @@ export class AuthService {
     return this.http.get<User>(`api/user/${id}`)
   }
 
-  getAll(user: User): Observable<User[]> {
+  getAll(): Observable<User[]> {
     return this.http.get<User[]>('/api/user')
   }
 
@@ -36,11 +39,16 @@ export class AuthService {
     return this.http.delete<Message>(`/api/user/${user._id}`)
   }
 
-
-
   logout() {
     localStorage.clear()
   }
 
+  get isAuthenticated() {
+    return localStorage.getItem('token') && localStorage.getItem('role');
+  }
+
+  get token() {
+    return localStorage.getItem('token');
+  }
 
 }

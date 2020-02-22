@@ -11,6 +11,10 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
+    visited: [{
+        ref: 'events',
+        type: Schema.Types.ObjectId,
+    }],
     email: String,
     firstName: String,
     lastName: String,

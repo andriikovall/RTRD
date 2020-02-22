@@ -52,6 +52,7 @@ module.exports.login = async function (req, res) {
 
       res.status(200).json({
         token: `Bearer ${token}`,
+        role: userCandidate.role,
       });
     } else {
       handler.response(res, 400, 'wrong password');
