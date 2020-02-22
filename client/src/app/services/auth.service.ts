@@ -11,15 +11,15 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  register(user: User): Observable<User> {
-    return this.http.post<User>('/api/auth/register', user)
+  register(login: string, password: string): Observable<User> {
+    return this.http.post<User>('/api/auth/register', { login, password });
   }
 
   login(user: User): Observable<Token> {
     return this.http.post<Token>('/api/auth/login', user)
       .pipe(
         tap(
-          ({token}) => localStorage.setItem('token', token)
+          ({ token }) => localStorage.setItem('token', token)
         )
       )
   }
@@ -36,11 +36,12 @@ export class AuthService {
     return this.http.delete<Message>(`/api/user/${user._id}`)
   }
 
-
-
   logout() {
     localStorage.clear()
   }
 
+  get isAuthenticated() {
+
+  }
 
 }

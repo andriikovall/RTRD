@@ -65,6 +65,7 @@ module.exports.login = async function (req, res) {
 function generateToken(id) {
   return jwt.sign({
     userId: id,
+    // role:
   }, config.jwt, {
     expiresIn: 60 * 60 * 60, //token expires in 60 hours
   })
