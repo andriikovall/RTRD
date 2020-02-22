@@ -8,6 +8,7 @@ export interface User {
     telegram?: string
     role?: string
     visitedEvents?: string[]
+    totalDonation?: number
 }
 
 export interface Message {
