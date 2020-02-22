@@ -21,9 +21,11 @@ module.exports.getById = async function(req, res) {
 
 module.exports.create = async function(req, res) {
     try {
+
         const event = new Event(req.body);
         await event.save();
         res.status(201).json(event);
+
     } catch (e) {
         handler.catch(res, e);
     }
@@ -31,16 +33,19 @@ module.exports.create = async function(req, res) {
 
 module.exports.update = async function(req, res) {
     try {
+
         const updated = req.body;
 
-        const event = await Event.findOneAndUpdate({
-            _id: req.params.id,
+        category = await Category.findOneAndUpdate({
+            _id: req.params.id
         }, {
-            $set: updated,
+            $set: updated
         }, {
-            new: true,
-        });
-        res.status(200).json(event);
+            new: true
+        })
+        res.status(200).json(category)
+
+
     } catch (e) {
         handler.catch(res, e);
     }

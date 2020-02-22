@@ -12,17 +12,17 @@ const app = express();
 require('./passport')(passport);
 
 mongoose.connect(config.mongoURI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true,
-        useFindAndModify: false,
-    })
-    .then(() => console.log('Mongo connected.'))
-    .catch(error => console.log(error));
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+})
+  .then(() => console.log('Mongo connected.'))
+  .catch(error => console.log(error));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-    extended: true,
+  extended: true,
 }));
 app.use(morgan);
 app.use(passport.initialize());

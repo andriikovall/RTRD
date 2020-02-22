@@ -25,7 +25,7 @@ export class EventServise {
     }
 
     update(event: Event): Observable<Event> {
-        return this.http.patch<Event>(`/api/event/${event._id}`, position)
+        return this.http.patch<Event>(`/api/event/${event._id}`, event)
     }
 
     delete(id: String): Observable<Message> {

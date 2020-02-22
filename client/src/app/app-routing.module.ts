@@ -4,14 +4,17 @@ import { MainComponent } from './components/main/main.component';
 import { NavbarComponent } from 'angular-bootstrap-md';
 import { AppComponent } from './app.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { EventComponent } from './components/event/event.component';
 
 
 const routes: Routes = [
-  { path: '', children: [
-    { path: '', redirectTo: '/main', pathMatch: 'full' },
-    { path: 'main', component: MainComponent },
-    { path: 'gallery', component: GalleryComponent }
-  ]},
+  {
+    path: '', children: [
+      { path: '', redirectTo: '/main', pathMatch: 'full' },
+      { path: 'main', component: MainComponent },
+      { path: 'event', component: EventComponent },
+    ]
+  },
 ];
 
 @NgModule({
