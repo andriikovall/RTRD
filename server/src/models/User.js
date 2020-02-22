@@ -22,6 +22,7 @@ const userSchema = new Schema({
     lastName: String,
     telegram: String,
     role: String,
+    totalDonation: Number,
 });
 
 module.exports = mongoose.model('users', userSchema);

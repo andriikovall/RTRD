@@ -3,7 +3,7 @@ const handler = require('../errorHandler');
 
 module.exports.getAll = async function(req, res) {
     try {
-        const events = await Event.find();
+        const events = await Event.find().sort({ vote: 'descending' });
         res.status(200).json(events);
     } catch (e) {
         handler.catch(res, e);
@@ -21,7 +21,7 @@ module.exports.getById = async function(req, res) {
 
 module.exports.create = async function(req, res) {
     try {
-
+        console.log(req.body)
         const event = new Event(req.body);
         await event.save();
         res.status(201).json(event);

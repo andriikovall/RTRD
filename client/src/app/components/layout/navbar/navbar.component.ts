@@ -21,7 +21,7 @@ export class NavbarComponent {
   password: string = '';
   passwordRepeat: string = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
     this.eventForm = new FormGroup({
@@ -57,12 +57,14 @@ export class NavbarComponent {
     this.registerModal.show();
     this.loginModal.hide();
     this.eventModal.hide();
+    this.clearInputs();
   }
 
   onLoginClicked() {
     this.loginModal.show();
     this.registerModal.hide();
     this.eventModal.hide();
+    this.clearInputs();
   }
 
   onRegisterConfirm() {
@@ -71,14 +73,31 @@ export class NavbarComponent {
       return;
     }
     this.authService.register(this.login, this.password).subscribe(user => {
+      this.registerModal.hide();
+      alert('Ви успішно зареєструвалися');
+      this.clearInputs();
       console.log(user);
     }, (err) => console.log(err));
   }
 
   onLoginConfirm() {
     this.authService.login({ login: this.login, password: this.password }).subscribe(user => {
-      console.log(user)
-    }, err => console.log(err));
+      console.log(user);
+      this.clearInputs();
+      this.loginModal.hide();
+      alert('Ви успішно увійшли');
+    }, err => {
+      console.log(err);
+      if (err.status === 400) {
+        alert('Невірний пароль або користувач з таким логіном не інсує');
+      }
+    });
+  }
+
+  clearInputs() {
+    this.login = '';
+    this.password = '';
+    this.passwordRepeat = '';
   }
 
 }

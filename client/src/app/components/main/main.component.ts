@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EventServise } from 'src/app/services/event.service';
+import { Observable } from 'rxjs';
+import { Event } from '../../interfaces'
 
 @Component({
   selector: 'app-main',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private eventService: EventServise) { }
+
+  events: Event[];
 
   ngOnInit() {
+    this.eventService.getAll().subscribe(e => {
+      this.events = e;
+      console.log(this.events);
+    });
   }
 
 }
