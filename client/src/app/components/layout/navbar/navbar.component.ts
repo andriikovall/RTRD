@@ -54,7 +54,7 @@ export class NavbarComponent {
   }
 
   onLoginConfirm() {
-    this.authService.login(this).subscribe( user => {
+    this.authService.login({ login: this.login, password: this.password }).subscribe(user => {
       console.log(user)
     }, err => console.log(err));
   }

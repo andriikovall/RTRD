@@ -13,10 +13,10 @@ export class TokenInterceptor implements HttpInterceptor {
         private router: Router) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if (this.authService.isAuthenticated()) {
+        if (this.authService.isAuthenticated) {
             req = req.clone({
                 setHeaders: {
-                    Authorization: this.authService.getUserData().token
+                    Authorization: this.authService.token
                 }
             })
         }

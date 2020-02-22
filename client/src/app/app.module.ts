@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/layout/navbar/navbar.component';
 import { MainComponent } from './components/main/main.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './token.interseptor';
 
 @NgModule({
   declarations: [

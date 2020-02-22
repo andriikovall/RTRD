@@ -28,7 +28,7 @@
         <!-- <form class="text-center" action="#!"> -->
 
           <p class="h4 mb-4">Вхід</p>
-          <input type="login" [(ngModel)]="login" class="form-control mb-4" placeholder="E-mail" required>
+          <input type="login" [(ngModel)]="login" class="form-control mb-4" placeholder="Логін" required>
 
           <input type="password" [(ngModel)]="password" class="form-control mb-4" placeholder="Password" required>
 
@@ -40,11 +40,11 @@
               </div>
             </div>
             <div>
-              <a href="">Forgot password?</a>
+              <a href="">Забули пароль?</a>
             </div>
           </div>
 
-          <button class="btn btn-info btn-block my-4" type="submit" (click)="onRegisterConfirm()">Sign in</button>
+          <button class="btn btn-info btn-block my-4" type="submit" (click)="onLoginConfirm()">Увійти</button>
 
           <p>Not a member?
             <button mdbBtn type="button" color="info" outline="true" (click)="onRegisterClicked()"
@@ -75,10 +75,10 @@
         <!-- <form class="text-center" action="#!"> -->
 
           <p class="h4 mb-4">Реєстрація</p>
-          <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+          <input type="login" [(ngModel)]="login" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Логін">
 
-          <input type="password" class="form-control mb-4" placeholder="Пароль">
-          <input type="password" class="form-control mb-4" placeholder="Повторіть пароль">
+          <input type="password"  [(ngModel)]="password" class="form-control mb-4" placeholder="Пароль">
+          <input type="password"  [(ngModel)]="passwordRepeat" class="form-control mb-4" placeholder="Повторіть пароль">
 
           <div class="d-flex justify-content-around">
             <div>
@@ -89,7 +89,7 @@
             </div>
           </div>
 
-          <button class="btn btn-info btn-block my-4" type="submit">Sign up</button>
+          <button class="btn btn-info btn-block my-4" (click)="onRegisterConfirm()" type="submit">Зареєструватися</button>
           <p>or sign in with:</p>
 
           <!-- <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
