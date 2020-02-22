@@ -15,7 +15,7 @@ export class NavbarComponent {
   @ViewChild('registerModal', { static: true }) public registerModal;
   @ViewChild('event', { static: true }) public eventModal;
 
-  form: FormGroup;
+  eventForm: FormGroup;
 
   login: string = '';
   password: string = '';
@@ -24,12 +24,12 @@ export class NavbarComponent {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      name: new FormControl(null),
-      bio: new FormControl(null),
-      date: new FormControl(null),
-      region: new FormControl(null),
-    })
+    this.eventForm = new FormGroup({
+      name: new FormControl(''),
+      bio: new FormControl(''),
+      date: new FormControl(''),
+      region: new FormControl(''),
+    });
   }
 
   links = [
@@ -49,7 +49,8 @@ export class NavbarComponent {
   }
 
   onEventSubmit() {
-
+    console.log(this.eventForm.value);
+    this.eventModal.hide();
   }
 
   onRegisterClicked() {
@@ -79,4 +80,5 @@ export class NavbarComponent {
       console.log(user)
     }, err => console.log(err));
   }
+
 }
