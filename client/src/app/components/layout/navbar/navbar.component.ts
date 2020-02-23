@@ -34,13 +34,6 @@ export class NavbarComponent {
     private navigation: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.eventForm = new FormGroup({
-      name: new FormControl(''),
-      bio: new FormControl(''),
-      date: new FormControl(''),
-      region: new FormControl(''),
-    });
-
   }
 
   links = [

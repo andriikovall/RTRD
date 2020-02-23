@@ -123,7 +123,7 @@
 
 <div mdbModal #event="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
   aria-hidden="true">
-  <form [formGroup]="eventForm" (ngSubmit)="onEventSubmit($event)">
+  <!-- <form [formGroup]="eventForm" (ngSubmit)="onEventSubmit($event)"> -->
 
 
     <div class="modal-dialog" role="document">
@@ -137,29 +137,28 @@
         </div>
         <div class="modal-body mx-3">
           <div class="md-form mb-5">
-            <input type="text" id="name" class="form-control" [(ngModel)]="newName" formControlName="name" mdbInput>
+            <input type="text" id="name"  [(ngModel)]="newName"  mdbInput>
             <label for="name">Назва події</label>
           </div>
 
           <div class="md-form mb-4">
-            <input type="date" id="date" class="form-control" [(ngModel)]="newDate" formControlName="date" mdbInput>
+            <input type="date" id="date"  [(ngModel)]="newDate"  mdbInput>
             <label for="date">Дата</label>
           </div>
           <div class="md-form mb-4">
-            <input type="time" id="date" class="form-control" [(ngModel)]="newTime" formControlName="clock" mdbInput>
+            <input type="time" id="date"  [(ngModel)]="newTime"  mdbInput>
             <label for="date">Дата</label>
           </div>
           <div class="md-form mb-5">
-            <textarea id="bio" class="md-textarea md-textarea-auto form-control" [(ngModel)]="newBio" formControlName="bio"
-              mdbInput></textarea>
+            <textarea id="bio" class="md-textarea md-textarea-auto " [(ngModel)]="newBio" mdbInput></textarea>
             <label for="bio">Опис події</label>
           </div>
 
         </div>
         <div class="modal-footer d-flex justify-content-center">
-          <button mdbBtn color="deep-orange " type="submit" class="waves-light" mdbWavesEffect>Підтвердити</button>
+          <button mdbBtn color="deep-orange " type="submit" class="waves-light" (click)="onEventSubmit()" mdbWavesEffect>Підтвердити</button>
         </div>
       </div>
     </div>
-  </form>
+  <!-- </form> -->
 </div>

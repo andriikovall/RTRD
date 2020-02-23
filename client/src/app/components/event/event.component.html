@@ -40,10 +40,7 @@
           </div>
         </div>
         <div class="author">
-          <p>Автор:
-            <a href="#">
-              <p>{{event.author}}</p>
-            </a>
+          <p style="font-size: 2em">Автор: {{event.author.login}}
           </p>
         </div>
         <div class="report">
@@ -138,7 +135,8 @@
         </ng-template>
       </div>
       <div class="modal-footer">
-        <button mdbBtn type="button" color="default" outline="true" mdbWavesEffect (click)="onReportConfirmed()">Подати скаргу</button>
+        <button mdbBtn type="button" color="default" outline="true" mdbWavesEffect (click)="onReportConfirmed()">Подати
+          скаргу</button>
       </div>
     </div>
   </div>

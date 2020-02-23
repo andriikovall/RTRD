@@ -6,7 +6,8 @@ module.exports.getAll = async function (req, res) {
     try {
         const events = await Event.find().sort({
             vote: 'descending'
-        });
+        }).populate({ path: 'sponsors.user', model: User })
+          .populate({ path: 'author', model: User })
         res.status(200).json(events);
     } catch (e) {
         handler.catch(res, e);
@@ -15,7 +16,9 @@ module.exports.getAll = async function (req, res) {
 
 module.exports.getById = async function (req, res) {
     try {
-        const event = await Event.findById(req.params.id);
+        const event = await Event.findById(req.params.id)
+        .populate({ path: 'sponsors.user', model: User })
+        .populate({ path: 'author', model: User });
         res.status(200).json(event);
     } catch (e) {
         handler.catch(res, e);
