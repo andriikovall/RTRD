@@ -3,6 +3,8 @@ const express = require('express');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const morgan = require('morgan')('dev');
+const path = require('path');
+
 const config = require('./config');
 
 const port = process.env.PORT || 5000;
@@ -32,5 +34,14 @@ app.use('/api/user', require('./routes/user'));
 app.use('/api/event', require('./routes/event'));
 
 app.listen(port, () => console.log(`Server has been started on ${port}`));
+
+const distDir = path.join(__dirname, '../../client/', 'dist', 'test-app');
+console.log('distDir:', distDir);
+
+app.use(express.static(distDir));
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(distDir, 'index.html'));
+});
 
 module.exports = app;

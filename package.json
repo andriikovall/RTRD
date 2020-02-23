@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm start --prefix server",
     "dev-client": "cd client && ng serve",
     "dev-server": "npm run dev --prefix server",
     "dev": "concurrently \"npm run dev-client\" \"npm run dev-server\"",
     "install": "npm install --prefix server && npm install --prefix client",
+    "heroku-postbuild": "npm run build --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
