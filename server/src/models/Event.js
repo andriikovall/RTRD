@@ -29,7 +29,10 @@ const eventSchema = new Schema({
             default: 0,
         },
     }],
-    region: String,
+    region: {
+        type: String,
+        default: "Оболонь",
+    },
     date: String,
 });
 
