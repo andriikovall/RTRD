@@ -14,9 +14,14 @@ export class EventComponent implements OnInit {
   event: Event;
 
   user: User = this.authService.user;
-reported = false;
+  reported = false;
+
+  donation: number;
+
+  loadingPayment = false;
 
 @ViewChild('reportModal', { static: true }) public reportModal;
+@ViewChild('donateModal', { static: true }) public donateModal;
 
 constructor(
   private route: ActivatedRoute,
@@ -60,6 +65,18 @@ subscribe() {
       this.ngOnInit();
     });
   }
+
 }
+  onDonationClick() {
+    this.donateModal.show();
+  }
+
+  onDonationConfirm() {
+    this.loadingPayment = true;
+    setTimeout(() => {
+      this.donateModal.hide();
+      this.loadingPayment = false
+    }, 2000);
+  }
 
 }
