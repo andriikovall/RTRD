@@ -7,7 +7,7 @@ import { Event } from '../../interfaces'
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
-})
+}) 
 export class MainComponent implements OnInit {
 
   constructor(private eventService: EventServise) { }
@@ -17,9 +17,19 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.eventService.getAll().subscribe(e => {
       this.events = e;
-      console.log('here');
-      console.log(this.events);
     });
+  }
+
+  onUpvoteClick(event: Event) {
+    event.vote+=1;
+    this.eventService.update(event).subscribe(e => this.ngOnInit());
+    
+  }
+
+  onDownvoteClick(event: Event) {
+    event.vote-=1;
+    this.eventService.update(event).subscribe(e => this.ngOnInit());
+    
   }
 
 }

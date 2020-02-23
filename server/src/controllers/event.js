@@ -2,7 +2,7 @@ const Event = require('../models/Event');
 const handler = require('../errorHandler');
 const User = require('../models/User');
 
-module.exports.getAll = async function(req, res) {
+module.exports.getAll = async function (req, res) {
     try {
         const events = await Event.find().sort({
             vote: 'descending'
@@ -13,7 +13,7 @@ module.exports.getAll = async function(req, res) {
     }
 };
 
-module.exports.getById = async function(req, res) {
+module.exports.getById = async function (req, res) {
     try {
         const event = await Event.findById(req.params.id);
         res.status(200).json(event);
@@ -22,7 +22,7 @@ module.exports.getById = async function(req, res) {
     }
 };
 
-module.exports.getTopSponsorsById = async function(req, res) {
+module.exports.getTopSponsorsById = async function (req, res) {
     try {
         const event = await Event.findById(req.params.id);
         const sponsors = event.sponsors.sort((a, b) => (a.cost - b.cost));
@@ -33,7 +33,7 @@ module.exports.getTopSponsorsById = async function(req, res) {
     }
 };
 
-module.exports.create = async function(req, res) {
+module.exports.create = async function (req, res) {
     try {
         console.log(req.body)
         const event = new Event(req.body);
@@ -45,19 +45,19 @@ module.exports.create = async function(req, res) {
     }
 };
 
-module.exports.update = async function(req, res) {
+module.exports.update = async function (req, res) {
     try {
 
         const updated = req.body;
 
-        category = await Category.findOneAndUpdate({
+        let category = await Event.findOneAndUpdate({
             _id: req.params.id
         }, {
             $set: updated
         }, {
             new: true
         })
-        res.status(200).json(category)
+        res.status(200).json(category);
 
 
     } catch (e) {
@@ -65,7 +65,7 @@ module.exports.update = async function(req, res) {
     }
 };
 
-module.exports.delete = async function(req, res) {
+module.exports.delete = async function (req, res) {
     try {
         await Event.remove({
             _id: req.params.id,

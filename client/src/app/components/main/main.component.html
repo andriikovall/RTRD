@@ -42,13 +42,13 @@
               </div>
               <div class="col-lg-1 col-md-1 col-sm-1 counter">
                 <div class="row">
-                  <mdb-icon fas icon="caret-up" size="2x" class="green-text"></mdb-icon>
+                  <mdb-icon fas icon="caret-up" size="2x" style="cursor: pointer;" (click)="onUpvoteClick(event)" class="green-text"></mdb-icon>
                 </div>
                 <div class="row" style="padding-left: 18%;">
                   {{event.vote}}
                 </div>
                 <div class="row">
-                  <mdb-icon fas icon="caret-down" size="2x" class="red-text"></mdb-icon>
+                  <mdb-icon fas icon="caret-down" size="2x" style="cursor: pointer;" (click)="onDownvoteClick(event)" class="red-text"></mdb-icon>
                 </div>
               </div>
 
