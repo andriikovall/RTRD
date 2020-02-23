@@ -28,13 +28,14 @@
               <div class="col">
                 <p>Топ спонсори</p>
                 <ul class="list-group">
-                  <li class="list-group-item list-group-item-action waves-light" *ngFor="let sponsor of event.sponsors">{{sponsor.user.login || 'no sponsor'}}</li>
+                  <li class="list-group-item list-group-item-action waves-light" *ngFor="let sponsor of event.sponsors">
+                    {{sponsor.user.login || 'no sponsor'}}</li>
                 </ul>
               </div>
             </div>
             <div class="row d-flex mt-5 justify-content-around">
               <button type="button" mdbBtn color="success" mdbWavesEffect>Пілписатися</button>
-                <button mdbBtn type="button" color="info" outline="true" mdbWavesEffect>Донат</button>
+              <button mdbBtn type="button" color="info" outline="true" mdbWavesEffect>Донат</button>
             </div>
           </div>
         </div>
@@ -46,7 +47,8 @@
           </p>
         </div>
         <div class="report">
-          <button mdbBtn type="button" color="warning" outline="true" mdbWavesEffect (click)="onReportClicked()">Залишити скаргу</button>
+          <button mdbBtn type="button" color="warning" outline="true" mdbWavesEffect
+            (click)="onReportClicked()">Залишити скаргу</button>
         </div>
       </div>
     </div>
@@ -113,21 +115,30 @@
 
 
 
-<div mdbModal #reportModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
-  aria-labelledby="myBasicModalLabel" aria-hidden="true">
+<div mdbModal #reportModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
         <p class="h4 mb-4">Залишити скаргу</p>
-        <mdb-checkbox [checked]="true" [default]="true">Спам</mdb-checkbox>
-        <mdb-checkbox [checked]="true" [default]="true">Насилля</mdb-checkbox>
-        <mdb-checkbox [checked]="true" [default]="true">Кримінал</mdb-checkbox>
-        <mdb-checkbox [checked]="true" [default]="true">Шахрайство</mdb-checkbox>
-        <div class="md-form">
-          <textarea type="text" id="comment-form" class="md-textarea md-textarea-auto form-control" rows="2"
-            mdbInput></textarea>
-          <label for="form7">Додати коментар</label>
-        </div>
+        <ng-container *ngIf="!reported; else elseTemplate">
+          <mdb-checkbox [checked]="true" [default]="true">Спам</mdb-checkbox>
+          <mdb-checkbox [checked]="true" [default]="true">Насилля</mdb-checkbox>
+          <mdb-checkbox [checked]="true" [default]="true">Кримінал</mdb-checkbox>
+          <mdb-checkbox [checked]="true" [default]="true">Шахрайство</mdb-checkbox>
+          <div class="md-form">
+            <textarea type="text" id="comment-form" class="md-textarea md-textarea-auto form-control" rows="2"
+              mdbInput></textarea>
+            <label for="form7">Додати коментар</label>
+          </div>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <p>Дякуємо, Ваша скарга прийнята</p>
+          <mdb-icon fas icon="check"></mdb-icon>
+        </ng-template>
+      </div>
+      <div class="modal-footer">
+        <button mdbBtn type="button" color="default" outline="true" mdbWavesEffect (click)="onReportConfirmed()">Подати скаргу</button>
       </div>
     </div>
   </div>

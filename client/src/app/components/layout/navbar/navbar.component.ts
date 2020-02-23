@@ -34,7 +34,6 @@ export class NavbarComponent {
 
   links = [
     { label: 'Головна', path: '/main', active: true },
-    { label: 'Хардкод ивент', path: '/event', active: false }
   ]
 
   onLinkClicked(link) {

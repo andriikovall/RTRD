@@ -8,7 +8,7 @@
         <a class="nav-link" (click)="onLinkClicked(link)" [routerLink]="link.path">{{link.label}}
         </a>
       </li>
-      <li class="nav-item waves-light" mdbWavesEffect>
+      <li class="nav-item waves-light" mdbWavesEffect *ngIf="authService.isAuthenticated">
         <a class="nav-link" (click)="onEventCreatingClicked()"><b> Створити Подію<mdb-icon fas icon="plus">
             </mdb-icon></b></a>
       </li>

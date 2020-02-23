@@ -12,6 +12,8 @@ export class EventComponent implements OnInit {
 
   event: Event;
 
+  reported = false;
+
   @ViewChild('reportModal', { static: true }) public reportModal;
 
   constructor(
@@ -29,6 +31,11 @@ export class EventComponent implements OnInit {
 
   onReportClicked() {
     this.reportModal.show();
+  }
+
+  onReportConfirmed() {
+    this.reported = true;
+    setTimeout(() => this.reportModal.hide(), 3000);
   }
 
 
