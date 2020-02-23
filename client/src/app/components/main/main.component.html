@@ -33,7 +33,7 @@
           <!-- <mdb-card-header>Title</mdb-card-header> -->
           <mdb-card-body>
             <div class="row">
-              <div class="col-lg-8 col-md-10 col-sm-10">
+              <div class="col-lg-8 col-md-10 col-sm-10" [routerLink]="['/event', event._id]" style="cursor: pointer;">
                 <mdb-card-title>
                   <h5>{{event.name || 'Подія без назви'}}</h5>
                 </mdb-card-title>
