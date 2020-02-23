@@ -19,6 +19,36 @@ module.exports.getById = async function(req, res) {
     }
 };
 
+module.exports.update = async function(req, res) {
+    try {
+        const updated = req.body;
+
+        const user = await User.findOneAndUpdate({
+            _id: req.params.id
+        }, {
+            $set: updated
+        }, {
+            new: true
+        })
+        res.status(200).json(user)
+
+
+    } catch (e) {
+        handler.catch(res, e);
+    }
+};
+
+module.exports.getTopSponsors = async function(req, res) {
+    try {
+        const user = await User.find();
+        const sponsors = user.totalDonations.sort((a, b) => (a - b));
+
+        res.status(200).json(sponsors);
+    } catch (e) {
+        handler.catch(res, e);
+    }
+};
+
 module.exports.delete = async function(req, res) {
     try {
         await User.remove({

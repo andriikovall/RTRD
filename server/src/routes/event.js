@@ -5,6 +5,7 @@ const authentication = require('passport').authenticate('jwt', { session: false 
 const controller = require('../controllers/event');
 
 router.get('/', controller.getAll);
+router.get('/sponsors/:id', controller.getTopSponsorsById);
 router.get('/:id', authentication, controller.getById);
 router.post('/', authentication, controller.create);
 router.patch('/:id', authentication, controller.update);
