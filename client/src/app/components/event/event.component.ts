@@ -12,7 +12,7 @@ export class EventComponent implements OnInit {
 
   event: Event;
 
-  @ViewChild('')
+  // @ViewChild('')
 
   constructor(
     private route: ActivatedRoute,
