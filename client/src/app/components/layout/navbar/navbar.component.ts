@@ -75,8 +75,8 @@ export class NavbarComponent {
     this.authService.register(this.login, this.password).subscribe(user => {
       this.registerModal.hide();
       alert('Ви успішно зареєструвалися');
-      this.clearInputs();
       console.log(user);
+      this.clearInputs();
     }, (err) => console.log(err));
   }
 

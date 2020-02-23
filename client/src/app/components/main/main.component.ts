@@ -12,11 +12,12 @@ export class MainComponent implements OnInit {
 
   constructor(private eventService: EventServise) { }
 
-  events: Event[];
+  events: Event[] = [];
 
   ngOnInit() {
     this.eventService.getAll().subscribe(e => {
       this.events = e;
+      console.log('here');
       console.log(this.events);
     });
   }

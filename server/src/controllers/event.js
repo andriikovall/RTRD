@@ -1,5 +1,6 @@
 const Event = require('../models/Event');
 const handler = require('../errorHandler');
+const User = require('../models/User');
 
 module.exports.getAll = async function(req, res) {
     try {
