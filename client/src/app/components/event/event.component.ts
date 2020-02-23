@@ -12,7 +12,9 @@ export class EventComponent implements OnInit {
 
   event: Event;
 
-  @ViewChild('')
+  // @ViewChild('loginModal', { static: true }) public loginModal;
+  // @ViewChild('registerModal', { static: true }) public registerModal;
+  // @ViewChild('event', { static: true }) public eventModal;
 
   constructor(
     private route: ActivatedRoute,
