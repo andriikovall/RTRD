@@ -70,6 +70,9 @@
                 <address>
                   <mdb-icon fas icon="map-marker-alt"></mdb-icon> {{event.address || 'Немає адреси'}}
                 </address>
+                <div *ngIf="authService.role === 'admin'">
+                  <button  type="button" class="btn btn-outline-danger waves-effect" (click)="onRemove(event._id)">Видалити</button>
+                </div>
               </div>
               <div class="col text-right">
                 <time>
@@ -87,6 +90,28 @@
           </mdb-card-footer>
         </mdb-card>
       </ng-container>
+    </div>
+  </div>
+</div>
+
+
+<div mdbModal #confirmModal="mdbModal" class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Підтвердження дії</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="this.confirmModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Ви точно хочете видалити цю подію?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onRemoveConfirm()">Так</button>
+        <button type="button" class="btn btn-primary" (click)="this.confirmModal.hide()">Ні</button>
+      </div>
     </div>
   </div>
 </div>

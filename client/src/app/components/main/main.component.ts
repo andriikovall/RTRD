@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventServise } from 'src/app/services/event.service';
 import { Observable } from 'rxjs';
 import { Event } from '../../interfaces'
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +11,13 @@ import { Event } from '../../interfaces'
 }) 
 export class MainComponent implements OnInit {
 
-  constructor(private eventService: EventServise) { }
+  idToDelete: string = '';
+
+  @ViewChild('confirmModal', { static: true }) public confirmModal;
+
+  constructor(private eventService: EventServise, 
+    public authService: AuthService) { }
+
 
   events: Event[] = [];
 
@@ -30,6 +37,20 @@ export class MainComponent implements OnInit {
     event.vote-=1;
     this.eventService.update(event).subscribe(e => this.ngOnInit());
     
+  }
+
+
+  onRemove(id: string) {
+    this.idToDelete = id;
+    this.confirmModal.show();
+  }
+
+  onRemoveConfirm() {
+    this.eventService.delete(this.idToDelete).subscribe(res => {
+      this.confirmModal.hide();
+      this.ngOnInit();
+      console.log(res);
+    }, err => console.log(err));
   }
 
 }
