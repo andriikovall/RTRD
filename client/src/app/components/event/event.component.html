@@ -34,7 +34,7 @@
               </div>
             </div>
             <div class="row d-flex mt-5 justify-content-around">
-              <button type="button" mdbBtn color="success" mdbWavesEffect>Пілписатися</button>
+              <button type="button" mdbBtn color="{{!isSubscribed() ? 'success' : 'dark-green'}}" (click)="subscribe()" mdbWavesEffect>{{isSubscribed() ? "Відписатися" :"Підписатися"}}</button>
               <button mdbBtn type="button" color="info" outline="true" mdbWavesEffect>Донат</button>
             </div>
           </div>
@@ -59,7 +59,7 @@
         <div class="comment row">
           <div class="comment-image col-lg-1 col-md-2 col-sm-2 col-4">
             <img style="border-radius: 50%;"
-              src="https://lh3.googleusercontent.com/proxy/xoC1nZgejmyWHLjMDK5jQtrlZQbOmG0roqow5av8XqvMGEeNqN3rDlO54s5tMjkV_6aEBfCdy0qoE2lmYFDrlicO6-5MQJWq5HqGEYF6-2r_OCvrSxaoqJOmbP5GYjV5ZM5O-w"
+              src="../../../assets/ava.png"
               alt="user avatar">
           </div>
           <div class="comment-body col-lg-11 col-md-10 col-sm-8 col-8">
@@ -82,7 +82,7 @@
         <div class="comment row">
           <div class="comment-image col-lg-1 col-md-2 col-sm-2 col-4">
             <img style="border-radius: 50%;"
-              src="https://lh3.googleusercontent.com/proxy/xoC1nZgejmyWHLjMDK5jQtrlZQbOmG0roqow5av8XqvMGEeNqN3rDlO54s5tMjkV_6aEBfCdy0qoE2lmYFDrlicO6-5MQJWq5HqGEYF6-2r_OCvrSxaoqJOmbP5GYjV5ZM5O-w"
+              src="../../../assets/ava.png"
               alt="user avatar">
           </div>
           <div class="comment-body col-lg-11 col-md-10 col-sm-8 col-8">
@@ -119,10 +119,10 @@
       <div class="modal-body">
         <p class="h4 mb-4">Залишити скаргу</p>
         <ng-container *ngIf="!reported; else elseTemplate">
-          <mdb-checkbox [checked]="true" [default]="true">Спам</mdb-checkbox>
-          <mdb-checkbox [checked]="true" [default]="true">Насилля</mdb-checkbox>
-          <mdb-checkbox [checked]="true" [default]="true">Кримінал</mdb-checkbox>
-          <mdb-checkbox [checked]="true" [default]="true">Шахрайство</mdb-checkbox>
+          <mdb-checkbox [checked]="false" [default]="true">Спам</mdb-checkbox>
+          <mdb-checkbox [checked]="false" [default]="true">Насилля</mdb-checkbox>
+          <mdb-checkbox [checked]="false" [default]="true">Кримінал</mdb-checkbox>
+          <mdb-checkbox [checked]="false" [default]="true">Шахрайство</mdb-checkbox>
           <div class="md-form">
             <textarea type="text" id="comment-form" class="md-textarea md-textarea-auto form-control" rows="2"
               mdbInput></textarea>
