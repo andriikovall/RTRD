@@ -46,7 +46,7 @@
           </p>
         </div>
         <div class="report">
-          <button mdbBtn type="button" color="warning" outline="true" mdbWavesEffect>Залишити скаргу</button>
+          <button mdbBtn type="button" color="warning" outline="true" mdbWavesEffect (click)="onReportClicked()">Залишити скаргу</button>
         </div>
       </div>
     </div>
@@ -109,4 +109,26 @@
       <button class="ml-auto" mdbBtn type="button" color="default" mdbWavesEffect>Додати коментар</button>
     </div>
   </section>
+</div>
+
+
+
+<div mdbModal #reportModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+  aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p class="h4 mb-4">Залишити скаргу</p>
+        <mdb-checkbox [checked]="true" [default]="true">Спам</mdb-checkbox>
+        <mdb-checkbox [checked]="true" [default]="true">Насилля</mdb-checkbox>
+        <mdb-checkbox [checked]="true" [default]="true">Кримінал</mdb-checkbox>
+        <mdb-checkbox [checked]="true" [default]="true">Шахрайство</mdb-checkbox>
+        <div class="md-form">
+          <textarea type="text" id="comment-form" class="md-textarea md-textarea-auto form-control" rows="2"
+            mdbInput></textarea>
+          <label for="form7">Додати коментар</label>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

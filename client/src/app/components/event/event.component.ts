@@ -12,9 +12,7 @@ export class EventComponent implements OnInit {
 
   event: Event;
 
-  // @ViewChild('loginModal', { static: true }) public loginModal;
-  // @ViewChild('registerModal', { static: true }) public registerModal;
-  // @ViewChild('event', { static: true }) public eventModal;
+  @ViewChild('reportModal', { static: true }) public reportModal;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,11 +22,14 @@ export class EventComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.eventService.getById(id).subscribe(ev => {
       this.event = ev;
-      console.log(ev);
     }, err => {
       console.log(err);
     })
-
   }
+
+  onReportClicked() {
+    this.reportModal.show();
+  }
+
 
 }

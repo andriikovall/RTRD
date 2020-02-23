@@ -40,7 +40,7 @@ export class AuthService {
   }
 
   getTopSponsors(): Observable<String[]> {
-    return this.http.get<String[]>(`/api/user/sponsors/`)
+    return this.http.get<String[]>(`/api/user/sponsors`)
   }
 
   delete(user: User): Observable<Message> {
