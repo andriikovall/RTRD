@@ -13,6 +13,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './token.interseptor';
 import { EventComponent } from './components/event/event.component';
+import { SubscribtionsComponent } from './components/subscribtions/subscribtions.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EventComponent } from './components/event/event.component';
     NavbarComponent,
     MainComponent,
     GalleryComponent,
-    EventComponent
+    EventComponent,
+    SubscribtionsComponent
   ],
   imports: [
     BrowserModule,

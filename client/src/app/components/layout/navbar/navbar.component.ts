@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
-import { User } from '../../../interfaces';
+import jwtDecode from 'jwt-decode';
+import { User, Event } from '../../../interfaces';
 import { AuthService } from 'src/app/services/auth.service';
+import { EventServise } from 'src/app/services/event.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -21,15 +23,17 @@ export class NavbarComponent {
   password: string = '';
   passwordRepeat: string = '';
 
-  constructor(public authService: AuthService) { }
+  newName: string = '';
+  newBio: string = '';
+  newDate: string = '';
+  newTime: string = '';
+
+
+  constructor(public authService: AuthService,
+    private eventService: EventServise, 
+    private navigation: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.eventForm = new FormGroup({
-      name: new FormControl(''),
-      bio: new FormControl(''),
-      date: new FormControl(''),
-      region: new FormControl(''),
-    });
   }
 
   links = [
@@ -48,7 +52,21 @@ export class NavbarComponent {
   }
 
   onEventSubmit() {
-    console.log(this.eventForm.value);
+    try {
+      const decoded = jwtDecode(localStorage.getItem("token"));
+      console.log(decoded)
+      let ev: Event = { name: this.newName.toString(), bio: this.newBio, date: this.newDate.toString(), author: decoded.userId }
+      this.eventService.create(ev).subscribe(e => {
+        window.location.reload();
+
+      }, err => {
+        console.log(err);
+      })
+    }
+    catch (err) {
+      console.log(err);
+    }
+
     this.eventModal.hide();
   }
 

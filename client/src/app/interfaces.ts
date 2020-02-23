@@ -7,7 +7,7 @@ export interface User {
     lastName?: string
     telegram?: string
     role?: string
-    visitedEvents?: string[]
+    subscribes?: string[]
     totalDonation?: number
 }
 

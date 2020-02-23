@@ -3,6 +3,7 @@ import { User, Message, Token, Sponsor } from '../interfaces';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import * as jwtDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,10 @@ export class AuthService {
     return this.http.post<any>('/api/auth/login', user)
       .pipe(
         tap(
-          ({ token, role }) => {
+          ({ token, role, user }) => {
             localStorage.setItem('token', token);
             localStorage.setItem('role', role);
+            localStorage.setItem('user', JSON.stringify(user));
           }
         )
       )
@@ -57,6 +59,20 @@ export class AuthService {
 
   get token() {
     return localStorage.getItem('token');
+  }
+
+  get role() {
+    return localStorage.getItem('role');
+  }
+
+
+  get user() {
+    try {
+      const user = JSON.parse(localStorage.getItem('user'));
+      return user;
+    } catch {
+      return null;
+    }
   }
 
 }
