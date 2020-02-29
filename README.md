@@ -1,5 +1,7 @@
 # Team RTRD
 
+<img src="https://res.cloudinary.com/webprogbase/image/upload/c_scale,w_500/v1582987351/unnamed_aamnfg.png" width="250">
+
 ## INT20H hackathon repo
 
 ### Team members
